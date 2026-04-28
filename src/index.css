@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import "tailwindcss";
+
+.nav-item {
+  @apply relative text-green-700 hover:text-[#e5792b] transition duration-300;
+}
+
+.nav-item::after {
+  content: "";
+  @apply absolute left-0 -bottom-1 w-0 h-[2px] bg-green-500 transition-all duration-300;
+}
+
+.nav-item:hover::after {
+  @apply w-full;
+}
+
+/* Dropdown */
+.dropdown-menu {
+  @apply absolute top-full left-0 bg-white shadow-xl rounded-md min-w-[200px]
+  opacity-0 invisible translate-y-3
+  group-hover:opacity-100 group-hover:visible group-hover:translate-y-0
+  transition-all duration-300 z-50;
+}
+
+.dropdown-item {
+  @apply block px-4 py-2 text-green-700 hover:bg-green-50 hover:text-[#e5792b] transition;
+}
