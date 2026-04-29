@@ -22,18 +22,19 @@ const WelcomeSections = () => {
 
   return (
     <section className="relative bg-white py-10 md:py-20 overflow-hidden">
-      <div className="w-full md:w-[85%] 2xl:w-[70%] mx-auto grid lg:grid-cols-2 gap-12 items-stretch">
+      <div className="container mx-auto w-full md:w-[85%] 2xl:w-[75%] px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-stretch">
         {/* LEFT CONTENT (Slide from LEFT) */}
-        <div className="flex flex-col justify-between h-full space-y-6 animate-on-scroll slide-left">
-          <p className="text-green-600 font-semibold uppercase tracking-widest text-sm">
+        <div className="flex flex-col justify-between h-full space-y-4 animate-on-scroll slide-left">
+          <span className="text-[#008235] font-semibold uppercase tracking-widest text-sm">
             About Star India Energy
-          </p>
+          </span>
 
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-snug">
-            Powering a Greener Future with Smart Solar Solutions
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-2">
+            Powering a Greener Future with at{" "}
+            <span className="text-[#008235]">Smart Solar Solutions</span>
           </h2>
 
-          <p className="text-gray-600 leading-relaxed text-base align-center justify-center">
+          <p className="text-gray-600 leading-relaxed text-base md:text-lg mb-3 text-justify">
             At{" "}
             <span className="font-semibold text-green-700">
               Star India Energy Solutions
@@ -42,68 +43,42 @@ const WelcomeSections = () => {
             designed for homes, businesses, and industries. Our goal is to
             provide clean, reliable, and cost-effective energy solutions that
             help reduce electricity bills and dependency on traditional power
-            sources.With a strong focus on quality, innovation, and customer
+            sources.
+            {/* With a strong focus on quality, innovation, and customer
             satisfaction, we offer end-to-end services including consultation,
-            system design, installation, and maintenance.By choosing us, you’re
-            not just installing solar panels — you’re investing in a sustainable
-            future, reducing your carbon footprint, and contributing to a
-            greener and cleaner environment for generations to come.
+            system design, installation, and maintenance. */}
+          </p>
+          <p className="text-gray-600 leading-relaxed text-base md:text-lg mb-3 text-justify">
+            By choosing us, you’re not just installing solar panels — you’re
+            investing in a sustainable future, reducing your carbon footprint,
+            and contributing to a greener and cleaner environment for
+            generations to come.
           </p>
 
           {/* LIST */}
-          <ul className="grid sm:grid-cols-2 gap-3 pt-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {[
-              "Save Electricity Bills",
-              "Eco-Friendly Energy",
-              "Government Subsidy Support",
-              "High Efficiency Panels",
-              "Fast Installation",
-              "24x7 Customer Support",
-            ].map((item, i) => (
-              <li
-                key={i}
-                className="flex items-center gap-2 text-gray-800 font-medium hover:translate-x-1 transition"
-              >
-                <span className="w-5 h-5 bg-green-600 text-white flex items-center justify-center rounded-full text-xs">
-                  ✓
-                </span>
-                {item}
-              </li>
+              ["Save Electricity Bills", 0],
+              ["Eco-Friendly Energy", 100],
+              ["Government Subsidy Support", 200],
+              ["High Efficiency Panels", 300],
+              ["Fast Installation", 400],
+              ["24x7 Customer Support", 500],
+            ].map(([text, delay]) => (
+              <Feature
+                key={text}
+                text={text}
+                delay={delay}
+                visible={true} // 👈 yahan tum animation control kar sakte ho
+              />
             ))}
-          </ul>
-
-          {/* STATS */}
-          {/* <div className="grid grid-cols-3 gap-4 pt-6">
-            <div className="text-center">
-              <h3 className="text-2xl font-bold text-green-700">500+</h3>
-              <p className="text-sm text-gray-500">Clients</p>
-            </div>
-            <div className="text-center">
-              <h3 className="text-2xl font-bold text-green-700">10+</h3>
-              <p className="text-sm text-gray-500">Years</p>
-            </div>
-            <div className="text-center">
-              <h3 className="text-2xl font-bold text-green-700">1000+</h3>
-              <p className="text-sm text-gray-500">Projects</p>
-            </div>
-          </div> */}
+          </div>
 
           {/* BUTTON */}
-          <div className="flex flex-wrap items-center gap-6 pt-6">
-            <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-md font-medium transition duration-300 shadow-md hover:shadow-xl">
+          <div className="flex flex-wrap items-center gap-4">
+            <button className="bg-[#008235] hover:bg-[#e5792b] text-white px-6 py-3 rounded-md font-semibold transition-all duration-200 shadow-md hover:shadow-xl">
               Explore More
             </button>
-
-            <div className="flex items-center gap-3 border border-gray-300 rounded-full px-2 py-2 pr-5 hover:border-green-600 transition">
-              <div className="w-12 h-12 bg-black text-white flex items-center justify-center rounded-full">
-                <Phone size={18} />
-              </div>
-
-              <div>
-                <p className="text-xs text-gray-500">NEED HELP NOW?</p>
-                <p className="font-semibold text-gray-900">+91 7860080877</p>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -151,5 +126,33 @@ const WelcomeSections = () => {
     </section>
   );
 };
+
+function Feature({ text, delay, visible }) {
+  return (
+    <div
+      className="flex items-center gap-2 w-full"
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translateX(0)" : "translateX(-20px)",
+        transition: `opacity 0.5s ease ${delay}ms, transform 0.5s ease ${delay}ms`,
+      }}
+    >
+      <div className="w-5 h-5 rounded-full bg-[#008235] flex items-center justify-center flex-shrink-0">
+        <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
+          <path
+            d="M1 4L3.5 6.5L9 1"
+            stroke="white"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </div>
+      <span className="text-gray-700 text-sm font-medium">{text}</span>
+    </div>
+  );
+}
+
+
 
 export default WelcomeSections;

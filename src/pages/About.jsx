@@ -52,7 +52,7 @@ const About = () => {
       {/* fgf */}
 
       {/* Welcome Section - Left Aligned */}
-      <div className="container w-full md:w-[85%] 2xl:w-[75%] mx-auto px-4 md:px-8 py-8 md:py-20">
+      <div className="container w-full md:w-[85%] 2xl:w-[75%] mx-auto px-4 py-6 md:px-8 py-8 md:py-20">
         <section className="animate-fadeIn">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* LEFT CONTENT (Text) */}
