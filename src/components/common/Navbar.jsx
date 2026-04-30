@@ -29,10 +29,10 @@ const Navbar = () => {
 
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1">
-              <Phone size={14} /> +91 7860080877
+              <Phone size={14} /> +91 9076734825
             </span>
             <span className="flex items-center gap-1">
-              <Mail size={14} /> info@solar.com
+              <Mail size={14} /> starindiaenergy@gmail.com
             </span>
           </div>
         </div>
@@ -78,16 +78,16 @@ const Navbar = () => {
               {/* Dropdown */}
               <div className="dropdown-menu">
                 <Link to="/services/on-grid" className="dropdown-item">
-                  On Grid
+                  On Grid Solutions
                 </Link>
                 <Link to="/services/off-grid" className="dropdown-item">
-                  Off Grid
+                  Off Grid Solutions
                 </Link>
                 <Link to="/services/hybrid" className="dropdown-item">
-                  Hybrid
+                  Hybrid Solutions
                 </Link>
                 <Link to="/services/atta-chakki" className="dropdown-item">
-                  Aata Chakki
+                  Solar Aata Chakki
                 </Link>
                 <Link to="/services/pump" className="dropdown-item">
                   Solar Pump
@@ -164,7 +164,7 @@ const Navbar = () => {
                       onClick={() => setOpen(false)}
                       className="block py-1 hover:text-green-600 transition"
                     >
-                      On Grid
+                      On-Grid Solutions
                     </Link>
 
                     <Link
@@ -172,7 +172,7 @@ const Navbar = () => {
                       onClick={() => setOpen(false)}
                       className="block py-1 hover:text-green-600 transition"
                     >
-                      Off Grid
+                      Off-Grid Solutions
                     </Link>
 
                     <Link
@@ -180,7 +180,7 @@ const Navbar = () => {
                       onClick={() => setOpen(false)}
                       className="block py-1 hover:text-green-600 transition"
                     >
-                      Hybrid
+                      Hybrid Solutions
                     </Link>
 
                     <Link
@@ -188,7 +188,7 @@ const Navbar = () => {
                       onClick={() => setOpen(false)}
                       className="block py-1 hover:text-green-600 transition"
                     >
-                      Aata Chakki
+                      Solar Aata Chakki
                     </Link>
 
                     <Link
@@ -196,7 +196,7 @@ const Navbar = () => {
                       onClick={() => setOpen(false)}
                       className="block py-1 hover:text-green-600 transition"
                     >
-                      Pump
+                      Solar Pump
                     </Link>
                   </div>
                 )}

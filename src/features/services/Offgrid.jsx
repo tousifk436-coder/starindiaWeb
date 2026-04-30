@@ -1,13 +1,447 @@
-import React from 'react'
-import PageBanner from '../../components/sections/PageBanner';
+import React, { useState } from "react";
+import PageBanner from "../../components/sections/PageBanner";
+import FreeInstallation from "../../components/sections/FreeInstallation";
+import FadeIn from "../../components/sections/FadeIn";
+import {
+  CheckCircle, Zap, Sun, TrendingUp, AlertTriangle,
+  BatteryCharging, DollarSign, Leaf, Shield, ChevronDown, ChevronUp, ArrowRight,
+  WifiCogIcon,
+  WifiCog,
+  WifiIcon,
+} from "lucide-react";
 
+// ── Images ──
+import singleService1 from "../../assets/images/single-service/single-service-img1.png";
+import singleService2 from "../../assets/images/single-service/single-service-img2.png";
+import singleService3 from "../../assets/images/single-service/single-service-img3.png";
+import offerImg1 from "../../assets/images/single-service/offer-img1.png";
+import offerImg2 from "../../assets/images/single-service/offer-img2.png";
+import offerImg3 from "../../assets/images/single-service/offer-img3.png";
+import offerIcon1 from "../../assets/images/single-service/offer-icon1.svg";
+import offerIcon2 from "../../assets/images/single-service/offer-icon2.svg";
+import offerIcon3 from "../../assets/images/single-service/offer-icon3.svg";
+import trueIcon from "../../assets/images/single-service/true-icon.svg";
+import solarBenefits from "../../assets/images/solar-benefits/solar-benefits-img.png";
+import whyChooseImg from "../../assets/images/why-choose-us/why-choose-us-img.png";
+import serviceSolBg from "../../assets/images/service-solutions/service-solutions-bg.png";
+import serviceSolImg1 from "../../assets/images/service-solutions/service-solutions-img1.png";
+import serviceSolImg2 from "../../assets/images/service-solutions/service-solutions-img2.png";
+import serviceSolImg3 from "../../assets/images/service-solutions/service-solutions-img3.png";
+
+// ── Static Data ──
+const benefits = [
+  {
+    icon: <Zap className="w-6 h-6" />,
+    title: "Complete Power Independence",
+    desc: "Generate and store your own electricity without relying on the utility grid — ideal for remote or unreliable power areas.",
+  },
+  {
+    icon: <Sun className="w-6 h-6" />,
+    title: "24/7 Power Availability",
+    desc: "Battery storage ensures uninterrupted power supply even during nights and outages.",
+  },
+  {
+    icon: <Shield className="w-6 h-6" />,
+    title: "Reliable Backup",
+    desc: "Perfect solution for areas with frequent power cuts — ensures consistent energy availability.",
+  },
+  {
+    icon: <Leaf className="w-6 h-6" />,
+    title: "Eco-Friendly Energy",
+    desc: "Reduce dependency on diesel generators and lower carbon emissions with clean solar power.",
+  },
+  {
+    icon: <TrendingUp className="w-6 h-6" />,
+    title: "Long-Term Savings",
+    desc: "Eliminate recurring fuel and electricity costs with a one-time investment in solar infrastructure.",
+  },
+  {
+    icon: <WifiIcon className="w-6 h-6" />,
+    title: "Remote Monitoring",
+    desc: "Track system performance and battery usage with smart monitoring solutions.",
+  },
+];
+
+
+const challenges = [
+  {
+    title: "Higher Initial Cost",
+    desc: "Battery storage and additional components increase upfront investment compared to on-grid systems.",
+  },
+  {
+    title: "Battery Maintenance",
+    desc: "Batteries require periodic maintenance and eventual replacement after a few years.",
+  },
+  {
+    title: "Limited Storage",
+    desc: "Energy availability depends on battery capacity — improper sizing may lead to power shortages.",
+  },
+  {
+    title: "System Design Complexity",
+    desc: "Requires accurate load calculation and system design to ensure optimal performance.",
+  },
+];
+
+const steps = [
+  {
+    num: "01",
+    title: "Load Analysis & Planning",
+    desc: "We analyze your daily energy consumption to design a reliable off-grid system.",
+    img: singleService1,
+  },
+  {
+    num: "02",
+    title: "System Design & Battery Sizing",
+    desc: "Custom solar + battery configuration to ensure uninterrupted power supply.",
+    img: singleService2,
+  },
+  {
+    num: "03",
+    title: "Installation & Setup",
+    desc: "Complete installation including panels, inverter, and battery bank with testing.",
+    img: singleService3,
+  },
+];
+
+
+
+// ── Reusable Sub-components ──
+const SectionTag = ({ children }) => (
+  <span className="inline-block bg-[#e5792b]/10 text-[#e5792b] text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-3">
+    {children}
+  </span>
+);
+
+
+
+// ── Main Component ──
 const Offgrid = () => {
   return (
-    <div className="bg-white text-slate-800">
+    <div className="bg-white text-gray-800 overflow-hidden">
       <PageBanner />
-      <section className="w-full md:w-[85%] 2xl:w-[75%] mx-auto px-4 md:px-8 py-12 md:py-24"></section>
+
+      {/* ══════════════════════════════════════
+          1. WHAT IS OFF-GRID SOLAR
+      ══════════════════════════════════════ */}
+      <section className="w-full md:w-[90%] xl:w-[85%] 2xl:w-[75%] mx-auto px-4 md:px-6">
+        <div className="flex flex-col lg:flex-row items-stretch gap-10 lg:gap-14 py-12 md:py-16 lg:py-20">
+          {/* LEFT */}
+          <FadeIn
+            direction="left"
+            className="w-full lg:w-1/2 flex flex-col justify-between h-full"
+          >
+            <div>
+              <SectionTag>What Is Off-Grid Solar?</SectionTag>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-snug mb-4">
+                Complete Energy Independence for{" "}
+                <span className="text-[#008235]">Homes & Remote Sites</span>
+              </h2>
+              <p className="text-gray-600 leading-relaxed mb-4 text-sm sm:text-base">
+                An <strong>Off-Grid Solar System</strong> operates entirely
+                independent of the utility grid. Solar panels generate DC power,
+                which is stored in a battery bank and converted to AC power via
+                an inverter — giving you reliable electricity 24/7, even in the
+                most remote locations.
+              </p>
+              <p className="text-gray-600 leading-relaxed mb-6 text-sm sm:text-base">
+                Star India Energy Solution designs and installs complete
+                off-grid solar systems tailored to your energy needs — from
+                small homes to large farms and commercial establishments —
+                ensuring uninterrupted, clean power wherever you are.
+              </p>
+            </div>
+            {/* LIST */}
+            <ul className="space-y-3 mt-4">
+              {[
+                "Works without electricity grid connection",
+                "Battery storage for 24/7 power backup",
+                "Ideal for rural & remote locations",
+                "Energy independence & reliability",
+              ].map((point) => (
+                <li
+                  key={point}
+                  className="flex items-start gap-3 text-gray-700 text-sm sm:text-base"
+                >
+                  <img
+                    src={trueIcon}
+                    alt=""
+                    className="w-5 h-5 mt-0.5 shrink-0"
+                  />
+                  {point}
+                </li>
+              ))}
+            </ul>
+          </FadeIn>
+
+          {/* RIGHT */}
+          <FadeIn
+            direction="right"
+            delay={150}
+            className="w-full lg:w-1/2 h-full"
+          >
+            <div className="grid grid-cols-2 gap-3 h-full">
+              <img
+                src={singleService1}
+                alt="Off-Grid solar installation"
+                className="rounded-2xl w-full h-full object-cover col-span-2 min-h-[180px] sm:min-h-[220px] lg:min-h-[260px]"
+              />
+              <img
+                src={singleService2}
+                alt="Solar battery storage"
+                className="rounded-2xl w-full h-full object-cover min-h-[140px] sm:min-h-[160px]"
+              />
+              <img
+                src={singleService3}
+                alt="Off-grid inverter"
+                className="rounded-2xl w-full h-full object-cover min-h-[140px] sm:min-h-[160px]"
+              />
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════
+          2. BENEFITS
+      ══════════════════════════════════════ */}
+      <section className="py-12 md:py-16 lg:py-20">
+        <div className="w-full md:w-[90%] xl:w-[85%] 2xl:w-[75%] mx-auto px-4 md:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-stretch">
+            {/* LEFT IMAGE */}
+            <FadeIn direction="left" className="h-full order-2 lg:order-1">
+              <img
+                src={solarBenefits}
+                alt="Off-Grid solar benefits"
+                className="rounded-2xl w-full h-full object-cover min-h-[260px] sm:min-h-[320px]"
+              />
+            </FadeIn>
+            {/* RIGHT CONTENT */}
+            <FadeIn
+              direction="right"
+              delay={150}
+              className="flex flex-col justify-between h-full order-1 lg:order-2"
+            >
+              <div>
+                <SectionTag>Key Benefits</SectionTag>
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+                  Why Choose an{" "}
+                  <span className="text-[#008235]">Off-Grid System?</span>
+                </h2>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {benefits.map((b, i) => (
+                  <FadeIn key={b.title} direction="up" delay={i * 80}>
+                    <div className="flex gap-3 p-4 rounded-xl border border-gray-100 hover:border-[#008235]/30 hover:bg-green-50/40 transition-all duration-300 h-full">
+                      <div className="w-11 h-11 rounded-xl bg-[#008235]/10 text-[#008235] flex items-center justify-center shrink-0">
+                        {b.icon}
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-gray-800 text-sm mb-1">
+                          {b.title}
+                        </h4>
+                        <p className="text-gray-500 text-xs leading-relaxed">
+                          {b.desc}
+                        </p>
+                      </div>
+                    </div>
+                  </FadeIn>
+                ))}
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════
+          3. OUR PROCESS
+      ══════════════════════════════════════ */}
+      <section
+        className="py-12 md:py-20 bg-cover bg-center relative"
+        style={{ backgroundImage: `url(${serviceSolBg})` }}
+      >
+        <div className="absolute inset-0 bg-gray-900/82" />
+        <div className="relative z-10 w-full md:w-[85%] 2xl:w-[75%] mx-auto px-4 md:px-8">
+          <FadeIn direction="up">
+            <div className="text-center mb-10 md:mb-14">
+              <SectionTag>Our Process</SectionTag>
+              <h2 className="text-3xl sm:text-4xl font-bold text-white">
+                How We Deliver Your Off-Grid Solution
+              </h2>
+            </div>
+          </FadeIn>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {steps.map((s, i) => (
+              <FadeIn key={s.num} direction="up" delay={i * 120}>
+                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden group hover:bg-white/10 hover:-translate-y-1 transition-all duration-300 h-full">
+                  <div className="relative overflow-hidden">
+                    <img
+                      src={s.img}
+                      alt={s.title}
+                      className="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute top-3 left-3 w-10 h-10 rounded-full bg-[#e5792b] text-white font-bold text-sm flex items-center justify-center shadow-lg">
+                      {s.num}
+                    </div>
+                  </div>
+                  <div className="p-5">
+                    <h4 className="font-bold text-white text-base mb-2">
+                      {s.title}
+                    </h4>
+                    <p className="text-white/60 text-sm leading-relaxed">
+                      {s.desc}
+                    </p>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════
+          4. CHALLENGES
+      ══════════════════════════════════════ */}
+      <section className="py-12 md:py-16 lg:py-20 bg-gray-50">
+        <div className="w-full md:w-[90%] xl:w-[85%] 2xl:w-[75%] mx-auto px-4 md:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-stretch">
+            {/* LEFT CONTENT */}
+            <FadeIn
+              direction="left"
+              className="flex flex-col justify-between h-full"
+            >
+              <div>
+                <SectionTag>Challenges & Limitations</SectionTag>
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                  Things to Know Before You{" "}
+                  <span className="text-[#e5792b]">Go Off-Grid</span>
+                </h2>
+                <p className="text-gray-600 leading-relaxed mb-6 text-sm sm:text-base">
+                  Off-Grid systems offer true energy independence, but
+                  understanding their limitations helps you plan the right
+                  system size and battery capacity for your needs.
+                </p>
+              </div>
+              <div className="space-y-4">
+                {challenges.map((c, i) => (
+                  <FadeIn key={c.title} direction="up" delay={i * 80}>
+                    <div className="flex gap-4 p-4 bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 h-full">
+                      <AlertTriangle className="w-5 h-5 text-[#e5792b] shrink-0 mt-1" />
+                      <div>
+                        <h4 className="font-bold text-gray-800 text-sm sm:text-base mb-1">
+                          {c.title}
+                        </h4>
+                        <p className="text-gray-500 text-sm leading-relaxed">
+                          {c.desc}
+                        </p>
+                      </div>
+                    </div>
+                  </FadeIn>
+                ))}
+              </div>
+            </FadeIn>
+            {/* RIGHT IMAGE */}
+            <FadeIn direction="right" delay={150} className="h-full">
+              <img
+                src={serviceSolImg1}
+                alt="Off-Grid solar challenges"
+                className="rounded-2xl w-full h-full object-cover min-h-[260px] sm:min-h-[320px]"
+              />
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════
+          5. OFFER CARDS
+      ══════════════════════════════════════ */}
+      <section className="py-12 md:py-20 bg-gray-50">
+        <div className="w-full md:w-[85%] 2xl:w-[75%] mx-auto px-4 md:px-8">
+          <FadeIn direction="up">
+            <div className="text-center mb-10 md:mb-14">
+              <SectionTag>What We Offer</SectionTag>
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+                Complete Off-Grid Solar Packages
+              </h2>
+            </div>
+          </FadeIn>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                img: offerImg1,
+                icon: offerIcon1,
+                title: "Residential Off-Grid",
+                desc: "1 kW – 10 kW systems for homes and villas. Perfect for areas with no grid access or frequent power cuts.",
+                points: [
+                  "Battery backup included",
+                  "24/7 power supply",
+                  "25-yr panel warranty",
+                ],
+              },
+              {
+                img: offerImg2,
+                icon: offerIcon2,
+                title: "Agricultural Off-Grid",
+                desc: "Systems for farms, irrigation pumps, and rural setups. Eliminate diesel generator costs permanently.",
+                points: [
+                  "Pump & irrigation ready",
+                  "Remote monitoring",
+                  "Rugged weatherproof design",
+                ],
+              },
+              {
+                img: offerImg3,
+                icon: offerIcon3,
+                title: "Commercial Off-Grid",
+                desc: "10 kW – 100 kW systems for resorts, schools, and remote commercial sites needing reliable power.",
+                points: [
+                  "Scalable battery bank",
+                  "Dedicated project manager",
+                  "Priority AMC support",
+                ],
+              },
+            ].map((card, i) => (
+              <FadeIn key={card.title} direction="up" delay={i * 120}>
+                <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
+                  <div className="relative overflow-hidden">
+                    <img
+                      src={card.img}
+                      alt={card.title}
+                      className="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute bottom-3 left-3 w-10 h-10 rounded-xl bg-white shadow flex items-center justify-center">
+                      <img src={card.icon} alt="" className="w-5 h-5" />
+                    </div>
+                  </div>
+                  <div className="p-5 flex flex-col flex-1">
+                    <h4 className="font-bold text-gray-800 text-base mb-2">
+                      {card.title}
+                    </h4>
+                    <p className="text-gray-500 text-sm leading-relaxed mb-4 flex-1">
+                      {card.desc}
+                    </p>
+                    <ul className="space-y-1.5">
+                      {card.points.map((p) => (
+                        <li
+                          key={p}
+                          className="flex items-center gap-2 text-sm text-gray-600"
+                        >
+                          <CheckCircle className="w-4 h-4 text-[#008235] shrink-0" />
+                          {p}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+     
+
+      <FreeInstallation />
     </div>
   );
-}
+};
 
-export default Offgrid
+export default Offgrid;

@@ -25,14 +25,14 @@ const AppRoutes = () => {
 
       {/* Blog */}
       <Route path="/blog" element={<Blog />} />
-      <Route path="/blog/:id" element={<BlogDetails />} />
-{/* Services */}
+      <Route path="/blog/:url" element={<BlogDetails />} />
+      {/* Services */}
       <Route path="/services">
         <Route path="on-grid" element={<Ongrid />} />
         <Route path="off-grid" element={<Offgrid />} />
-        <Route path="hybrid" element={<Hybrid/>} />
-        <Route path="atta-chakki" element={<Atta/>} />
-        <Route path="pump" element={<Solarpump/>} />
+        <Route path="hybrid" element={<Hybrid />} />
+        <Route path="atta-chakki" element={<Atta />} />
+        <Route path="pump" element={<Solarpump />} />
       </Route>
 
       {/* 404 */}

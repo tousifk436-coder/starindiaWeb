@@ -35,25 +35,25 @@ export default function Contact() {
       icon: Phone,
       title: "Call Us",
       info: [
+        // {
+        //   text: "+91 9616664333",
+        //   link: `https://wa.me/919616664333?text=${message}`,
+        //   type: "whatsapp",
+        // },
         {
-          text: "+91 9616664333",
-          link: `https://wa.me/919616664333?text=${message}`,
-          type: "whatsapp",
-        },
-        {
-          text: "+91 9454994229",
-          link: "tel:+919454994229",
+          text: "+91 9076734825",
+          link: "tel:+919076734825",
           type: "call",
         },
       ],
-      subinfo: "Mon-Sat, 09:45 am - 05 pm",
+      subinfo: "",
     },
     {
       icon: Mail,
       title: "Email Us",
       info: {
-        text: "info@kalyanihomeopathy.com",
-        link: "mailto:info@kalyanihomeopathy.com",
+        text: "starindiaenergy@gmail.com",
+        link: "mailto:starindiaenergy@gmail.com",
       },
       subinfo: "We reply within 24hrs",
     },
@@ -61,8 +61,8 @@ export default function Contact() {
       icon: MapPin,
       title: "Visit Us",
       info: {
-        text: "E-3/37, Vijayipur, Vishesh Khand 3, Gomti Nagar, Lucknow",
-        link: "https://maps.app.goo.gl/mso5EmJt4E17GyRL6",
+        text: "D-222 UGF Vibhuti Khand, Gomti Nagar, Lucknow, UP 226010",
+        link: "https://www.google.com/maps?ll=26.863692,80.997792&z=13&t=m&hl=en&gl=IN&mapclient=embed&cid=15286058874902622042",
       },
     },
   ];
@@ -318,12 +318,13 @@ focus:border-[#2c408c] transition"
 
       {/* MAP (Same as yours) */}
       <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.1639312725906!2d81.0178889!3d26.8665323!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be292f9509067%3A0xdcb8b6d65f923bce!2sKalyani%20Classical%20Homeopathic%20Clinic!5e0!3m2!1sen!2sin!4v1774440811181!5m2!1sen!2sin"
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d28477.548596500732!2d80.9657449!3d26.8496969!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be372786cb681%3A0xd422fd8ec6472f5a!2sStar%20India%20Energy%20Solutions!5e0!3m2!1sen!2sin!4v1777551419835!5m2!1sen!2sin"
         width="100%"
         height="400"
         style={{ border: 0 }}
         loading="lazy"
-      />
+      ></iframe>
+      
     </div>
   );
 }
