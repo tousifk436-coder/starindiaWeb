@@ -40,7 +40,7 @@ export default function SolarBenefits() {
       </div>
 
       {/* BENEFITS LIST */}
-      <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-4">
         {[
           "Affordable Electricity",
           "Increase Property Value",
@@ -64,7 +64,7 @@ export default function SolarBenefits() {
       </div>
 
       {/* COUNTER SECTION */}
-      <div className=" bg-gray-100 rounded-2xl p-8 md:p-10">
+      {/* <div className=" bg-gray-100 rounded-2xl p-8 md:p-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           <div>
             <h3 className="text-2xl md:text-3xl font-bold text-[#008235]">
@@ -94,7 +94,7 @@ export default function SolarBenefits() {
             <p className="text-sm text-gray-600 mt-1">Awards Winning</p>
           </div>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }

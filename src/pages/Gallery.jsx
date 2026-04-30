@@ -1,6 +1,6 @@
 import { Sparkles } from "lucide-react";
 import React from "react";
-import heroBg from "../assets/images/hero/hero-4-img1.jpg";
+import PageBanner from "../components/sections/PageBanner";
 const galleryImages = [
   {
     img: "https://images.unsplash.com/photo-1509391366360-2e959784a276",
@@ -69,16 +69,14 @@ const Gallery = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-red-50">
       {/* HERO SECTION */}
-      <section
+      {/* <section
         className="relative overflow-hidden text-white bg-cover bg-center"
         style={{
           backgroundImage: `url(${heroBg})`,
         }}
       >
-        {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
 
-        {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-28">
           <div className="text-center max-w-4xl mx-auto space-y-6">
             <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/20 backdrop-blur text-xs font-semibold tracking-widest uppercase">
@@ -99,7 +97,9 @@ const Gallery = () => {
             </p>
           </div>
         </div>
-      </section>
+      </section> */}
+      <PageBanner />
+
       {/* GALLERY GRID SECTION */}
       <section className="lg:max-w-[1400px]  mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 cursor-pointer">
         {/* Section Heading */}
