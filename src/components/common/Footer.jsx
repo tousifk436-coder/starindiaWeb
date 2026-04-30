@@ -101,22 +101,36 @@ const Footer = () => {
           </h3>
 
           <div className="space-y-4 text-gray-300 text-sm">
-            <div className="flex gap-2 items-start hover:text-orange-400 transition">
+            {/* PHONE */}
+            <a
+              href="tel:+919076734825"
+              className="flex gap-2 items-start hover:text-orange-400 transition"
+            >
               <Phone size={16} className="text-orange-400 mt-1" />
               <span>+91-9076734825</span>
-            </div>
+            </a>
 
-            <div className="flex gap-2 items-start hover:text-orange-400 transition">
+            {/* EMAIL */}
+            <a
+              href="mailto:starindiaenergy@gmail.com"
+              className="flex gap-2 items-start hover:text-orange-400 transition"
+            >
               <Mail size={16} className="text-orange-400 mt-1" />
               <span>starindiaenergy@gmail.com</span>
-            </div>
+            </a>
 
-            <div className="flex gap-2 items-start hover:text-orange-400 transition">
+            {/* ADDRESS (GOOGLE MAP OPEN) */}
+            <a
+              href="https://www.google.com/maps?ll=26.863692,80.997792&z=13&t=m&hl=en&gl=IN&mapclient=embed&cid=15286058874902622042"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex gap-2 items-start hover:text-orange-400 transition"
+            >
               <MapPin size={16} className="text-orange-400 mt-1" />
               <span>
                 D-222 UGF Vibhuti Khand, Gomti Nagar, Lucknow, UP 226010
               </span>
-            </div>
+            </a>
           </div>
         </div>
 

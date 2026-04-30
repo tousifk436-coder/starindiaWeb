@@ -55,10 +55,10 @@ export default function FreeInstallation() {
                   NEED HELP NOW?
                 </p>
                 <a
-                  href="tel:+12483578866"
+                  href="tel:+919076734825"
                   className="text-white font-semibold text-sm"
                 >
-                  +1 (248) 357 8866
+                  +91 9076734825
                 </a>
               </div>
             </div>

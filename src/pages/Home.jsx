@@ -6,6 +6,8 @@ import HowItWorks from "../components/sections/HowitWork";
 import ServicesSlider from "../components/sections/ServiceSlider";
 import FreeInstallation from "../components/sections/FreeInstallation";
 import SolarBenefits from "../components/sections/SolarBenefits";
+import Contact from "../components/sections/Contact";
+import Wychoose from "../components/sections/WhyChoose";
 
 const Home = () => {
   return(
@@ -16,7 +18,9 @@ const Home = () => {
       <HowItWorks />
       <FreeInstallation />
       <SolarBenefits/>
+      <Wychoose />
       <Testimonials />
+      <Contact/>
     </main>
   )
 };

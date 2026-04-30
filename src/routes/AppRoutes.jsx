@@ -7,6 +7,11 @@ import Blog from "../pages/Blog";
 import BlogDetails from "../features/blog/BlogDetails";
 import Notfound from "../pages/Notfound";
 import Gallery from "../pages/Gallery";
+import Ongrid from "../features/services/Ongrid";
+import Offgrid from "../features/services/Offgrid";
+import Hybrid from "../features/services/Hybrid";
+import Atta from "../features/services/Atta";
+import Solarpump from "../features/services/Solarpump";
 
 
 
@@ -20,7 +25,15 @@ const AppRoutes = () => {
 
       {/* Blog */}
       <Route path="/blog" element={<Blog />} />
-      <Route path="/blog/:id" element={<BlogDetails />} />
+      <Route path="/blog/:url" element={<BlogDetails />} />
+      {/* Services */}
+      <Route path="/services">
+        <Route path="on-grid" element={<Ongrid />} />
+        <Route path="off-grid" element={<Offgrid />} />
+        <Route path="hybrid" element={<Hybrid />} />
+        <Route path="atta-chakki" element={<Atta />} />
+        <Route path="pump" element={<Solarpump />} />
+      </Route>
 
       {/* 404 */}
       <Route path="*" element={<Notfound />} />
